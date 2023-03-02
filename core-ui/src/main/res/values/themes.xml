@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.Hacker" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/hacker_white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="android:includeFontPadding">false</item>
+
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Hacker.HeadLine1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Hacker.HeadLine2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Hacker.HeadLine3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Hacker.HeadLine4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Hacker.HeadLine5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Hacker.HeadLine6</item>
+
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Hacker.Body1</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Hacker.Body2</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Hacker.Body3</item>
+
+        <item name="textAppearanceButton">@style/TextAppearance.Hacker.Button</item>
+    </style>
+
+    <style name="Theme.Hacker" parent="Base.Theme.Hacker" />
+
+    <style name="Theme.Hacker.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
+
+        <ImageView
+            android:id="@+id/img_rank_first_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_rank_first_place"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_rank_first_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/img_rank_first_place"
+            app:layout_constraintStart_toStartOf="@+id/img_rank_first_place"
+            app:layout_constraintTop_toBottomOf="@+id/img_rank_first_place"
+            tools:src="@drawable/ic_rank_head" />
+
+        <ImageView
+            android:id="@+id/img_rank_first_hair"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/img_rank_first_head"
+            app:layout_constraintEnd_toEndOf="@id/img_rank_first_head"
+            app:layout_constraintStart_toStartOf="@id/img_rank_first_head"
+            app:layout_constraintTop_toTopOf="@id/img_rank_first_head" />
+
+        <TextView
+            android:id="@+id/txt_rank_first_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceHeadline3"
+            app:layout_constraintEnd_toEndOf="@+id/img_rank_first_head"
+            app:layout_constraintStart_toStartOf="@+id/img_rank_first_head"
+            app:layout_constraintTop_toBottomOf="@+id/img_rank_first_head"
+            tools:text="지수" />
+
+        <TextView
+            android:id="@+id/txt_name_first_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceBodyMedium"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/txt_rank_first_place"
+            app:layout_constraintStart_toStartOf="@+id/txt_rank_first_place"
+            app:layout_constraintTop_toBottomOf="@+id/txt_rank_first_place"
+            tools:text="1,559 커밋" />
+
+        <ImageView
+            android:id="@+id/img_rank_second_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_rank_second_place"
+            app:layout_constraintBottom_toBottomOf="@+id/img_rank_first_head"
+            app:layout_constraintEnd_toStartOf="@+id/img_rank_first_head"
+            app:layout_constraintTop_toTopOf="@+id/img_rank_first_head" />
+
+        <ImageView
+            android:id="@+id/img_rank_second_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/img_rank_second_place"
+            app:layout_constraintStart_toStartOf="@+id/img_rank_second_place"
+            app:layout_constraintTop_toBottomOf="@+id/img_rank_second_place"
+            tools:src="@drawable/ic_rank_head" />
+
+        <ImageView
+            android:id="@+id/img_rank_second_hair"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/img_rank_second_head"
+            app:layout_constraintEnd_toEndOf="@id/img_rank_second_head"
+            app:layout_constraintStart_toStartOf="@id/img_rank_second_head"
+            app:layout_constraintTop_toTopOf="@id/img_rank_second_head" />
+
+        <TextView
+            android:id="@+id/txt_rank_second_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceHeadline3"
+            app:layout_constraintEnd_toEndOf="@+id/img_rank_second_head"
+            app:layout_constraintStart_toStartOf="@+id/img_rank_second_head"
+            app:layout_constraintTop_toBottomOf="@+id/img_rank_second_head"
+            tools:text="지수" />
+
+        <TextView
+            android:id="@+id/txt_name_second_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceBodyMedium"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/txt_rank_second_place"
+            app:layout_constraintStart_toStartOf="@+id/txt_rank_second_place"
+            app:layout_constraintTop_toBottomOf="@+id/txt_rank_second_place"
+            tools:text="1,559 커밋" />
+
+        <ImageView
+            android:id="@+id/img_rank_third_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_rank_third_place"
+            app:layout_constraintBottom_toBottomOf="@+id/img_rank_first_head"
+            app:layout_constraintStart_toEndOf="@+id/img_rank_first_head"
+            app:layout_constraintTop_toBottomOf="@+id/img_rank_first_place" />
+
+        <ImageView
+            android:id="@+id/img_rank_third_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/img_rank_third_place"
+            app:layout_constraintStart_toStartOf="@+id/img_rank_third_place"
+            app:layout_constraintTop_toBottomOf="@+id/img_rank_third_place"
+            tools:src="@drawable/ic_rank_head" />
+
+        <ImageView
+            android:id="@+id/img_rank_third_hair"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/img_rank_third_head"
+            app:layout_constraintEnd_toEndOf="@id/img_rank_third_head"
+            app:layout_constraintStart_toStartOf="@id/img_rank_third_head"
+            app:layout_constraintTop_toTopOf="@id/img_rank_third_head" />
+
+        <TextView
+            android:id="@+id/txt_rank_third_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceHeadline3"
+            app:layout_constraintEnd_toEndOf="@+id/img_rank_third_head"
+            app:layout_constraintStart_toStartOf="@+id/img_rank_third_head"
+            app:layout_constraintTop_toBottomOf="@+id/img_rank_third_head"
+            tools:text="지수" />
+
+        <TextView
+            android:id="@+id/txt_name_third_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceBodyMedium"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/txt_rank_third_place"
+            app:layout_constraintStart_toStartOf="@+id/txt_rank_third_place"
+            app:layout_constraintTop_toBottomOf="@+id/txt_rank_third_place"
+            tools:text="1,559 커밋" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

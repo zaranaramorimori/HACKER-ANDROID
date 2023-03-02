@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.teamzzong.hacker.presentation.gallery.content.gallery.search.SearchFriendViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_search_friend_header"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_hacker_logo"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_search_friend_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:includeFontPadding="false"
+            android:textAppearance="?textAppearanceHeadline1"
+            app:layout_constraintEnd_toEndOf="@+id/img_search_friend_header"
+            app:layout_constraintStart_toStartOf="@+id/img_search_friend_header"
+            app:layout_constraintTop_toBottomOf="@+id/img_search_friend_header"
+            tools:text="친구를 찾아봐요" />
+
+        <TextView
+            android:id="@+id/txt_search_friend_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:includeFontPadding="false"
+            android:textAppearance="?textAppearanceHeadline3"
+            app:layout_constraintEnd_toEndOf="@+id/txt_search_friend_title"
+            app:layout_constraintStart_toStartOf="@+id/txt_search_friend_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_search_friend_title"
+            tools:text="추가할 Github 유저 네임을 적어주새요" />
+
+        <EditText
+            android:id="@+id/edit_user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/selector_edit"
+            android:hint="@string/user_name_github_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingVertical="14dp"
+            android:paddingStart="16dp"
+            android:text="@={viewModel.name}"
+            android:textColor="@drawable/selector_edit"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_search_friend_description" />
+
+        <ImageView
+            android:id="@+id/iv_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_x_black"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/edit_user_name"
+            app:layout_constraintEnd_toEndOf="@id/edit_user_name"
+            app:layout_constraintTop_toTopOf="@id/edit_user_name" />
+
+        <ImageView
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="12dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/selector_next_button"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

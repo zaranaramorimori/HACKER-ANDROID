@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_background_friend_select"
+        android:foreground="@drawable/shape_foreground_opacity_50">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/img_profile"
+            android:layout_width="56dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="24dp"
+            android:layout_marginStart="18dp"
+            android:padding="2dp"
+            android:src="#C4C4C4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CircleImageView"
+            app:strokeColor="@color/black"
+            app:strokeWidth="3dp" />
+
+        <TextView
+            android:id="@+id/txt_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?textAppearanceHeadline1"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/img_profile"
+            app:layout_constraintTop_toTopOf="@+id/img_profile"
+            tools:text="두두두" />
+
+        <TextView
+            android:id="@+id/txt_github_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceBodyMedium"
+            app:layout_constraintBottom_toBottomOf="@+id/img_profile"
+            app:layout_constraintStart_toStartOf="@+id/txt_username"
+            tools:text="duduitchu" />
+
+        <ImageView
+            android:id="@+id/btn_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:src="@drawable/ic_gallery_add_friend_complete"
+            app:layout_constraintBottom_toBottomOf="@+id/img_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img_profile" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

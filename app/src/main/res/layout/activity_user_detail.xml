@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/img_detail_user_face"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="56dp"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <ImageView
+            android:id="@+id/img_detail_user_hair"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/img_detail_user_face"
+            app:layout_constraintEnd_toEndOf="@id/img_detail_user_face"
+            app:layout_constraintStart_toStartOf="@id/img_detail_user_face"
+            app:layout_constraintTop_toTopOf="@id/img_detail_user_face" />
+
+        <TextView
+            android:id="@+id/txt_detail_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:includeFontPadding="false"
+            android:textAppearance="?textAppearanceHeadline1"
+            app:layout_constraintEnd_toEndOf="@+id/img_detail_user_face"
+            app:layout_constraintStart_toStartOf="@+id/img_detail_user_face"
+            app:layout_constraintTop_toBottomOf="@+id/img_detail_user_face"
+            tools:text="훈세" />
+
+        <TextView
+            android:id="@+id/txt_detail_user_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:includeFontPadding="false"
+            android:textAppearance="?textAppearanceHeadline3"
+            app:layout_constraintEnd_toEndOf="@+id/txt_detail_name"
+            app:layout_constraintStart_toStartOf="@+id/txt_detail_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_detail_name"
+            tools:text="devsehoonkwon" />
+
+        <TextView
+            android:id="@+id/txt_detail_commit_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/hacker_font_kimhwanki"
+            android:includeFontPadding="false"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="@+id/txt_detail_name"
+            app:layout_constraintStart_toStartOf="@+id/txt_detail_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_detail_user_id"
+            tools:text="360 커밋" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

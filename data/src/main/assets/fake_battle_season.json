@@ -1,0 +1,23 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "진행중인 시즌 조회 성공",
+  "data": {
+    "seasons": [
+      {
+        "seasonId": 2,
+        "imageUrl": "http://sopt.org/wp/wp-content/uploads/2014/01/29_SOPT_%ED%8C%8C%EB%B9%84%EC%BD%98.png",
+        "agency": "WE SOPT",
+        "title": "29th AppJam",
+        "duration": "2022.01.22 ~ 2022.03.22"
+      },
+      {
+        "seasonId": 3,
+        "imageUrl": "http://sopt.org/wp/wp-content/uploads/2014/01/favicon.png",
+        "agency": "THE SOPT",
+        "title": "30th AppJam",
+        "duration": "2022.02.22 ~ 2022.04.22"
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HACKER</string>
+
+    <string name="season_ing">진행중</string>
+
+    <string name="attack_member">멤버</string>
+    <string name="attack_log">로그</string>
+    <string name="default_notification_channel_id">default_messaging_channel</string>
+    <string name="onboarding_skip"><u>건너뛰기</u></string>
+    <string name="onboarding_next"><u>다음으로</u></string>
+    <string name="onboarding_start"><u>시작하기</u></string>
+</resources>

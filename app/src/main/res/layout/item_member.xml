@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.teamzzong.hacker.domain.entity.battle.Member" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_member_bg">
+
+        <ImageView
+            android:id="@+id/iv_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:layout_marginTop="4dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@id/tv_member_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_rank_head" />
+
+        <ImageView
+            android:id="@+id/iv_hair"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@id/iv_face"
+            app:layout_constraintEnd_toEndOf="@id/iv_face"
+            app:layout_constraintStart_toStartOf="@id/iv_face"
+            app:layout_constraintTop_toTopOf="@id/iv_face" />
+
+        <TextView
+            android:id="@+id/tv_member_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="7dp"
+            android:text="@{data.nickname}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/iv_face"
+            app:layout_constraintStart_toStartOf="@id/iv_face"
+            app:layout_constraintTop_toBottomOf="@id/iv_face"
+            tools:text="두두두두두두" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

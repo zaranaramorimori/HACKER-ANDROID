@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_rank_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="30dp"
+            android:layout_marginStart="60dp"
+            android:textAppearance="?textAppearanceHeadline2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4등" />
+
+        <TextView
+            android:id="@+id/txt_rank_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceHeadline3"
+            app:layout_constraintBottom_toTopOf="@id/txt_rank_commit_count"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="지수" />
+
+        <TextView
+            android:id="@+id/txt_rank_commit_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?textAppearanceBodyMedium"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/txt_rank_nickname"
+            app:layout_constraintStart_toStartOf="@+id/txt_rank_nickname"
+            app:layout_constraintTop_toBottomOf="@+id/txt_rank_nickname"
+            tools:text="1,559 커밋" />
+
+        <ImageView
+            android:id="@+id/img_rank_head"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="44dp"
+            android:src="@drawable/ic_rank_head"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_rank_hair"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/img_rank_head"
+            app:layout_constraintEnd_toEndOf="@id/img_rank_head"
+            app:layout_constraintStart_toStartOf="@id/img_rank_head"
+            app:layout_constraintTop_toTopOf="@id/img_rank_head" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

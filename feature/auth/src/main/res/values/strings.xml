@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_name_intro">안녕하세요!</string>
+    <string name="user_name_github">Github 유저 네임을 적어주세요</string>
+    <string name="user_name_github_hint">유저 네임을 정확하게 입력해주세요</string>
+    <string name="user_name_x">존재하지 않는 유저입니다.</string>
+    <string name="user_name_decide">틀림없이 입력했나요?\n나중에 수정이 불가능해요!</string>
+    <string name="nickname_question">회원님을 뭐라고 부르면 좋을까요?</string>
+    <string name="nickname_hint">사용하실 닉네임을 입력해주세요</string>
+</resources>

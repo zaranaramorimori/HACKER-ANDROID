@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "깃허브 유저 등록 성공",
+  "data": {
+    "profileImage": "https://github.com/kkk5474096.png"
+  }
+}

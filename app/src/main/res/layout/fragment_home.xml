@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.simform.refresh.SSPullToRefreshLayout
+            android:id="@+id/layout_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txt_home_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:includeFontPadding="false"
+                    android:textAppearance="?textAppearanceHeadline1"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lineHeight="26sp"
+                    tools:text="훈세" />
+
+                <TextView
+                    android:id="@+id/txt_home_user_suffix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:includeFontPadding="false"
+                    android:text="님"
+                    android:textAppearance="?textAppearanceHeadline2"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_home_user"
+                    app:layout_constraintStart_toEndOf="@+id/txt_home_user" />
+
+                <TextView
+                    android:id="@+id/txt_home_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="오늘도 커밋하세요!"
+                    android:textAppearance="?textAppearanceHeadline2"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/txt_home_user"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_home_user" />
+
+                <ImageView
+                    android:id="@+id/btn_home_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/selector_btn_notification"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btn_home_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/ic_home_setting"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_home_notification"
+                    app:layout_constraintStart_toStartOf="@+id/btn_home_notification"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_home_notification" />
+
+                <ImageView
+                    android:id="@+id/img_home_user_face"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_home_setting"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <ImageView
+                    android:id="@+id/img_home_user_hair"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/img_home_user_face"
+                    app:layout_constraintEnd_toEndOf="@id/img_home_user_face"
+                    app:layout_constraintStart_toStartOf="@id/img_home_user_face"
+                    app:layout_constraintTop_toTopOf="@id/img_home_user_face" />
+
+                <TextView
+                    android:id="@+id/txt_home_commit_count_prefix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="20dp"
+                    android:includeFontPadding="false"
+                    android:text="오늘 커밋 횟수 "
+                    android:textAppearance="?textAppearanceHeadline3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_home_user_face" />
+
+                <TextView
+                    android:id="@+id/txt_home_commit_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textAppearance="?textAppearanceHeadline3"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_home_commit_count_prefix"
+                    app:layout_constraintStart_toEndOf="@+id/txt_home_commit_count_prefix"
+                    app:layout_constraintTop_toTopOf="@+id/txt_home_commit_count_prefix"
+                    tools:text="(8/10)" />
+
+                <ImageView
+                    android:id="@+id/btn_home_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:src="@drawable/selector_refresh_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_home_commit_count"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txt_home_commit_count" />
+
+                <com.skydoves.progressview.ProgressView
+                    android:id="@+id/progress_home_exp"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_home_refresh"
+                    app:progressView_animation="accelerateDecelerate"
+                    app:progressView_autoAnimate="true"
+                    app:progressView_borderColor="@color/hacker_black"
+                    app:progressView_borderWidth="3dp"
+                    app:progressView_colorBackground="@color/hacker_white"
+                    app:progressView_colorProgress="@color/hacker_black"
+                    app:progressView_radius="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_home_change"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/shape_rectangle_corner_10_border_3"
+                    android:fontFamily="@font/hacker_font_kimhwanki"
+                    android:gravity="center"
+                    android:textColor="@color/hacker_black"
+                    android:textSize="32sp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_home_refresh"
+                    tools:text="교환하기 (2)" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/container_attack_coupon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="@+id/progress_home_exp"
+                    app:layout_constraintTop_toBottomOf="@id/progress_home_exp">
+
+                    <ImageView
+                        android:id="@+id/img_attack_coupon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_attack_coupon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txt_attack_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/hacker_font_kimhwanki"
+                        android:includeFontPadding="false"
+                        android:textSize="32sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/img_attack_coupon"
+                        app:layout_constraintStart_toEndOf="@id/img_attack_coupon"
+                        app:layout_constraintTop_toTopOf="@+id/img_attack_coupon"
+                        tools:text="x1" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.simform.refresh.SSPullToRefreshLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,38 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "특정 팀 상세 정보 조회 성공",
+  "data": {
+    "isMyTeam": true,
+    "team": {
+      "name": "FILL-IN",
+      "imageUrl": "https://avatars.githubusercontent.com/u/97016513?s=200&v=4",
+      "commitCount": 1073,
+      "hairCount": 200
+    },
+    "members": [
+      {
+        "userId": 1,
+        "nickname": "nicknameTEMP"
+      }
+    ],
+    "logs": [
+      {
+        "date": "2022.03.08",
+        "content": [
+          "대머리가 머리카락을 뽑아갔어요!",
+          "청년씨가 머리카락을 뽑아갔어요!",
+          "새로운 머리가 0가닥 자랐고, 3가닥이 뽑혔어요!"
+        ]
+      },
+      {
+        "date": "2022.03.07",
+        "content": [
+          "대머리가 머리카락을 뽑아갔어요!",
+          "청년씨가 머리카락을 뽑아갔어요!",
+          "새로운 머리가 10가닥 자랐고, 4가닥이 뽑혔어요!"
+        ]
+      }
+    ]
+  }
+}

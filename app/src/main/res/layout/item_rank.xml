@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:textColor="@color/hacker_black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2등" />
+
+        <TextView
+            android:id="@+id/tv_team_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="24dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/hacker_black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/iv_face"
+            app:layout_constraintStart_toEndOf="@id/tv_rank"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="FILL-IN" />
+
+        <TextView
+            android:id="@+id/tv_commit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/hacker_black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/tv_team_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_team_name"
+            tools:text="1,502 커밋" />
+
+        <ImageView
+            android:id="@+id/iv_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_hair"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_face"
+            app:layout_constraintEnd_toEndOf="@id/iv_face"
+            app:layout_constraintStart_toStartOf="@id/iv_face"
+            app:layout_constraintTop_toTopOf="@id/iv_face" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

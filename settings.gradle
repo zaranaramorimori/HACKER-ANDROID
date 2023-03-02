@@ -1,0 +1,18 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
+        maven { url 'https://jitpack.io' }
+    }
+}
+rootProject.name = "HACKER"
+include ':app'
+include ':core-compose'
+include ':core-ui'
+include ':shared'
+include ':domain'
+include ':data'
+include ':feature:auth'
+include ':feature:notification'

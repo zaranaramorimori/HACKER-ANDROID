@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="hacker_normal">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/hacker_black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="hacker_bold">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/hacker_black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="hacker_title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/hacker_black</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+</resources>

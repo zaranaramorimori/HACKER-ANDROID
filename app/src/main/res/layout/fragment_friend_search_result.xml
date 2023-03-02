@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_search_friend_header"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_hacker_logo"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_search_friend_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:includeFontPadding="false"
+            android:textAppearance="?textAppearanceHeadline1"
+            app:layout_constraintEnd_toEndOf="@+id/img_search_friend_header"
+            app:layout_constraintStart_toStartOf="@+id/img_search_friend_header"
+            app:layout_constraintTop_toBottomOf="@+id/img_search_friend_header"
+            tools:text="친구를 찾아봐요" />
+
+        <TextView
+            android:id="@+id/txt_search_friend_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:includeFontPadding="false"
+            android:textAppearance="?textAppearanceHeadline3"
+            app:layout_constraintEnd_toEndOf="@+id/txt_search_friend_title"
+            app:layout_constraintStart_toStartOf="@+id/txt_search_friend_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_search_friend_title"
+            tools:text="추가할 Github 유저 네임을 적어주새요" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_friend"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="12dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/btn_next"
+            app:layout_constraintTop_toBottomOf="@+id/txt_search_friend_description"
+            tools:listitem="@layout/item_search_friend" />
+
+        <ImageView
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="12dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/background_select_friend_button"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

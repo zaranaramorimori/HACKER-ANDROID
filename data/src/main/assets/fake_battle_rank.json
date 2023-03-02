@@ -1,0 +1,43 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "시즌별 팀 정보 조회 성공",
+  "data": {
+    "myTeam": {
+      "teamId": 1,
+      "rank": 1,
+      "name": "FILL-IN",
+      "commitCount": 1073
+    },
+    "teams": [
+      {
+        "teamId": 1,
+        "rank": 1,
+        "name": "FILL-IN",
+        "commitCount": 4123,
+        "hairCount": 200
+      },
+      {
+        "teamId": 3,
+        "rank": 2,
+        "name": "CARDNA",
+        "commitCount": 1234,
+        "hairCount": 192
+      },
+      {
+        "teamId": 3,
+        "rank": 3,
+        "name": "Spark",
+        "commitCount": 2413,
+        "hairCount": 192
+      },
+      {
+        "teamId": 3,
+        "rank": 4,
+        "name": "B:um",
+        "commitCount": 3124,
+        "hairCount": 192
+      }
+    ]
+  }
+}

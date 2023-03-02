@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/shape_select_edit" android:state_focused="true"
+        android:color="@color/hacker_white"/>
+    <item android:drawable="@drawable/shape_unselect_edit" android:state_focused="false"
+        android:color="@color/hacker_black"/>
+</selector>

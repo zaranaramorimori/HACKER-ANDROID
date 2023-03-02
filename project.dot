@@ -1,0 +1,34 @@
+digraph {
+  graph [label="HACKER\n ",labelloc=t,fontsize=30,ranksep=1.4];
+  node [style=filled, fillcolor="#bbbbbb"];
+  rankdir=TB;
+
+  # Projects
+
+  ":app" [shape=box, fillcolor="#baffc9"];
+  ":core-compose" [fillcolor="#baffc9"];
+  ":core-ui" [fillcolor="#baffc9"];
+  ":data" [fillcolor="#baffc9"];
+  ":domain" [fillcolor="#ffb3ba"];
+  ":feature:auth" [fillcolor="#baffc9"];
+  ":shared" [fillcolor="#baffc9"];
+
+  {rank = same; ":app";}
+
+  # Dependencies
+
+  ":app" -> ":core-compose" [style=dotted]
+  ":app" -> ":feature:auth" [style=dotted]
+  ":app" -> ":shared" [style=dotted]
+  ":app" -> ":core-ui" [style=dotted]
+  ":app" -> ":domain" [style=dotted]
+  ":app" -> ":data" [style=dotted]
+  ":core-compose" -> ":shared" [style=dotted]
+  ":core-ui" -> ":shared" [style=dotted]
+  ":data" -> ":domain" [style=dotted]
+  ":data" -> ":shared" [style=dotted]
+  ":feature:auth" -> ":core-compose" [style=dotted]
+  ":feature:auth" -> ":core-ui" [style=dotted]
+  ":feature:auth" -> ":shared" [style=dotted]
+  ":feature:auth" -> ":domain" [style=dotted]
+}
