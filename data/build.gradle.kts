@@ -2,7 +2,7 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
-    kotlin("plugin.serialization") version "1.8.0"
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
