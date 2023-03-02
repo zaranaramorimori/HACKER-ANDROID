@@ -1,0 +1,74 @@
+#name: HACKER Release Builder
+#
+#on:
+#  push:
+#    branches:
+#      - 'release/**'
+#      - 'hotfix/**'
+#
+#defaults:
+#  run:
+#    shell: bash
+#    working-directory: .
+#
+#jobs:
+#  build:
+#    name: Release Builder
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#
+#      - name: Gradle cache
+#        uses: actions/cache@v3
+#        with:
+#          path: |
+#            ~/.gradle/caches
+#            ~/.gradle/wrapper
+#          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+#          restore-keys: |
+#            ${{ runner.os }}-gradle-
+#      - name: set up JDK 11
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: 'temurin'
+#          java-version: 11
+#
+#      - name: Change gradlew permissions
+#        run: chmod +x ./gradlew
+#
+#      - name: Access Firebase Service
+#        run: echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > ./app/google-services.json
+#
+#      - name: Access Firebase Distribution Service
+#        run: echo '${{ secrets.FIREBASE_DISTRIBUTION_JSON }}' > ./keystore/firebase_distribution_key.json
+#
+#      - name: Build debug APK
+#        run: ./gradlew assembleDebug appDistributionUploadDebug
+#
+#      - name: Build debug APK
+#        run: ./gradlew :app:assembleDebug :app:appDistributionUploadDebug
+#
+#      - name: On Success
+#        if: ${{ success() }}
+#        uses: rtCamp/action-slack-notify@v2
+#        env:
+#          SLACK_COLOR: '#53A551'
+#          SLACK_ICON: https://user-images.githubusercontent.com/54518925/152633478-e38f005a-ad6e-4127-9f49-fd905a1c8f8d.png?size=48
+#          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+#          SLACK_TITLE: 'HACKER/DEBUG APP S.U.C.C.E.S.S 🎉🎉🎉'
+#          MSG_MINIMAL: true
+#          SLACK_USERNAME: HACKERBUCKS
+#          SLACK_MESSAGE: '바아로오~ 디버그 앱 쏴버리겠습니다!! 바로 봐주십쇼 형님들'
+#
+#      - name: On Failed, Notify in Slack
+#        if: ${{ failure() }}
+#        uses: rtCamp/action-slack-notify@v2
+#        env:
+#          SLACK_COLOR: '#ff0000'
+#          SLACK_ICON: https://user-images.githubusercontent.com/54518925/152633478-e38f005a-ad6e-4127-9f49-fd905a1c8f8d.png?size=48
+#          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+#          SLACK_TITLE: 'HACKER/Android Debug App Distribution Fail❌'
+#          MSG_MINIMAL: true
+#          SLACK_USERNAME: HACKERBUCKS
+#          SLACK_MESSAGE: '에러ㅋㅋㅋㅋㅋ났네ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅅㄱ'
