@@ -47,8 +47,7 @@ fun LoginScreen(
     viewModel: LoginViewModel,
     kakaoAuthInteractor: KakaoAuthInteractor,
     navigateHome: () -> Unit,
-    navigateRegister: () -> Unit,
-    onUpdate: () -> Unit = {}
+    navigateRegister: () -> Unit
 ) {
     HackerTheme {
         val density = LocalDensity.current
@@ -175,14 +174,14 @@ private val mockKakaoAuthInteractor = object : KakaoAuthInteractor {
     override val isKakaoTalkLoginAvailable: Boolean
         get() = false
 
-    override suspend fun loginByKakaoTalk(): Result<KakaoAuthInteractor.KakaoLoginState.Token> =
+    override suspend fun loginByKakaoTalk(): Result<KakaoAuthInteractor.Token> =
         runCatching {
-            KakaoAuthInteractor.KakaoLoginState.Token("")
+            KakaoAuthInteractor.Token("")
         }
 
-    override suspend fun loginByKakaoAccount(): Result<KakaoAuthInteractor.KakaoLoginState.Token> =
+    override suspend fun loginByKakaoAccount(): Result<KakaoAuthInteractor.Token> =
         runCatching {
-            KakaoAuthInteractor.KakaoLoginState.Token("")
+            KakaoAuthInteractor.Token("")
         }
 
     override fun logout() = Unit
@@ -192,5 +191,5 @@ private val mockKakaoAuthInteractor = object : KakaoAuthInteractor {
 @Preview(backgroundColor = 0xFFFFFFFF)
 @Composable
 fun PreviewLoginScreen() {
-    LoginScreen(hiltViewModel(), mockKakaoAuthInteractor, {}, {}) {}
+    LoginScreen(hiltViewModel(), mockKakaoAuthInteractor, {}) {}
 }

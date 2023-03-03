@@ -49,15 +49,14 @@ class LoginActivity : AppCompatActivity() {
                     } else {
                         startActivity(appNavigator.navigateToOnboarding())
                     }
-                },
-                {
-                    if (hackerDataStore.isFirstAppVisit) {
-                        startActivity(UserNameActivity.getIntent(this))
-                    } else {
-                        startActivity(appNavigator.navigateToOnboarding())
-                    }
                 }
-            )
+            ) {
+                if (hackerDataStore.isFirstAppVisit) {
+                    startActivity(UserNameActivity.getIntent(this))
+                } else {
+                    startActivity(appNavigator.navigateToOnboarding())
+                }
+            }
         }
     }
 
