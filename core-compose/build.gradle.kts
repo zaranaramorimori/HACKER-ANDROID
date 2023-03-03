@@ -1,32 +1,16 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("com.teamzzong.hacker.feature")
 }
 
 android {
-    compileSdk = Constants.compileSdk
-
     defaultConfig {
-        minSdk = Constants.minSdk
-        targetSdk = Constants.targetSdk
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
-    }
-
-    compileOptions {
-        sourceCompatibility = Versions.javaVersion
-        targetCompatibility = Versions.javaVersion
-    }
-
-    kotlinOptions {
-        jvmTarget = Versions.jvmVersion
     }
 
     buildFeatures {
         compose = true
     }
-
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.androidx.compose.plugin.get()
     }
@@ -35,10 +19,6 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation(libs.kotlin)
-    implementation(libs.androidx.core)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     implementation(libs.bundles.compose)
 
     testImplementation(libs.junit)

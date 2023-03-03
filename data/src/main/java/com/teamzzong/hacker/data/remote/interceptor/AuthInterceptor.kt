@@ -25,7 +25,7 @@ class AuthInterceptor @Inject constructor(
         val authRequest = if (isLogin(originalRequest)) originalRequest else
             originalRequest.newBuilder().addHeader("Authorization", dataStore.userToken).build()
         val response = chain.proceed(authRequest)
-        when (response.code()) {
+        when (response.code) {
             401 -> {
                 try {
                     val refreshTokenRequest = originalRequest.newBuilder().get()
@@ -38,7 +38,7 @@ class AuthInterceptor @Inject constructor(
                     if (refreshTokenResponse.isSuccessful) {
                         val responseToken: ResponseAuthToken =
                             json.decodeFromString(
-                                refreshTokenResponse.body()?.string()
+                                refreshTokenResponse.body?.string()
                                     ?: throw IllegalStateException("refreshTokenResponse is null $refreshTokenResponse")
                             )
                         with(dataStore) {
@@ -67,9 +67,9 @@ class AuthInterceptor @Inject constructor(
 
     private fun isLogin(originalRequest: Request) =
         when {
-            originalRequest.url().encodedPath().contains("devicetoken") -> false
-            originalRequest.url().encodedPath().contains("token") -> true
-            originalRequest.url().encodedPath().contains("auth") -> true
+            originalRequest.url.encodedPath.contains("devicetoken") -> false
+            originalRequest.url.encodedPath.contains("token") -> true
+            originalRequest.url.encodedPath.contains("auth") -> true
             else -> false
         }
 }

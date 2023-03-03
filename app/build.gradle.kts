@@ -1,48 +1,51 @@
+import java.util.Properties
+
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
-    id("kotlin-parcelize")
-    id("dagger.hilt.android.plugin")
+    id("com.teamzzong.hacker.application")
+    id("com.teamzzong.hacker.hilt")
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.google.firebase.crashlytics)
+    alias(libs.plugins.google.secret.plugin)
+    alias(libs.plugins.google.firebase.appdistribution)
     id("com.google.android.gms.oss-licenses-plugin")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.appdistribution")
-    id("com.google.firebase.crashlytics")
 }
 
 android {
-    compileSdk = Constants.compileSdk
+    val properties = Properties().apply {
+        load(file("../local.properties").inputStream())
+    }
+
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
-        applicationId = Constants.packageName
-        minSdk = Constants.minSdk
-        targetSdk = Constants.targetSdk
-        versionCode = Constants.versionCode
-        versionName = Constants.versionName
+        val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+        applicationId = "com.teamzzong.hacker"
+        versionName = libs.findVersion("appVersion").get().requiredVersion
+        versionCode = checkNotNull(libs.findVersion("versionCode").get().requiredVersion).toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
         getByName("debug") {
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
+            keyAlias = "${properties["DEUBG_KEY_ALIAS"]}"
+            keyPassword = "${properties["DEBUG_KEY_PASSWORD"]}"
             storeFile = File("${project.rootDir.absolutePath}/keystore/debug.keystore")
-            storePassword = "android"
+            storePassword = "${properties["DEBUG_KEY_PASSWORD"]}"
         }
         create("release") {
-            keyAlias = "hackerandroid"
-            keyPassword = "hacker1234!"
+            keyAlias = "\"${properties["RELEASE_KEY_ALIAS"]}\""
+            keyPassword = "\"${properties["RELEASE_KEY_PASSWORD"]}\""
             storeFile = File("${project.rootDir.absolutePath}/keystore/releasekey")
-            storePassword = "hacker1234!"
+            storePassword = "\"${properties["RELEASE_KEY_PASSWORD"]}\""
         }
     }
 
     buildTypes {
         getByName("debug") {
             configure<com.google.firebase.appdistribution.gradle.AppDistributionExtension> {
-                appId = "1:496905678269:android:a84b7af7d17001f614b6d4"
+                appId = "${properties["APP_DISTRIBUTION_ID"]}"
                 serviceCredentialsFile =
                     file("../keystore/firebase_distribution_key.json").absolutePath
                 artifactType = "APK"
@@ -59,7 +62,7 @@ android {
                 "proguard-rules.pro"
             )
             configure<com.google.firebase.appdistribution.gradle.AppDistributionExtension> {
-                appId = "1:496905678269:android:a84b7af7d17001f614b6d4"
+                appId = "\"${properties["APP_DISTRIBUTION_ID"]}\""
                 serviceCredentialsFile =
                     file("../keystore/firebase_distribution_key.json").absolutePath
                 artifactType = "APK"
@@ -69,24 +72,13 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = Versions.javaVersion
-        targetCompatibility = Versions.javaVersion
-    }
-
-    kotlinOptions {
-        jvmTarget = Versions.jvmVersion
-    }
-
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.androidx.compose.plugin.get()
     }
-
     buildFeatures {
-        dataBinding = true
-        viewBinding = true
         compose = true
     }
+
     namespace = "com.teamzzong.hacker"
 }
 
