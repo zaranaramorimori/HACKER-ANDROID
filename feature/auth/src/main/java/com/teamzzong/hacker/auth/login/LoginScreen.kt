@@ -20,6 +20,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,19 +39,19 @@ import com.teamzzong.hacker.auth.R
 import com.teamzzong.hacker.compose.HackerTheme
 import com.teamzzong.hacker.compose.KimHwanki
 import com.teamzzong.hacker.domain.repository.social.KakaoAuthInteractor
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @Composable
 fun LoginScreen(
     viewModel: LoginViewModel,
     kakaoAuthInteractor: KakaoAuthInteractor,
     navigateHome: () -> Unit,
-    navigateRegister: () -> Unit,
-    onUpdate: () -> Unit = {}
+    navigateRegister: () -> Unit
 ) {
     HackerTheme {
         val density = LocalDensity.current
+        val scope = rememberCoroutineScope()
         ConstraintLayout(modifier = Modifier.fillMaxSize()) {
             val (logo, title, kakaoLogin) = createRefs()
             val logoAnimationStarted by viewModel.splashAnimationStarted.collectAsState()
@@ -85,7 +86,8 @@ fun LoginScreen(
                     .size(logoSize)
                     .onSizeChanged {
                         with(density) { logoAnimationFinished = it.width.toDp() >= 200.dp }
-                    }.offset(y = if (!viewModel.isAutoLoginEnabled) offsetY else 0.dp)
+                    }
+                    .offset(y = if (!viewModel.isAutoLoginEnabled) offsetY else 0.dp)
             )
 
             viewModel.changeSplashStartState(true)
@@ -134,28 +136,25 @@ fun LoginScreen(
                         .padding(horizontal = 24.dp)
                         .clickable {
                             if (kakaoAuthInteractor.isKakaoTalkLoginAvailable) {
-                                kakaoAuthInteractor.loginByKakaoTalk()
+                                scope.launch {
+                                    kakaoAuthInteractor
+                                        .loginByKakaoTalk()
+                                        .onSuccess { viewModel.executeInHouseLogin(it.token) }
+                                        .onFailure { Timber.e(it) }
+                                }
+
                             } else {
-                                kakaoAuthInteractor.loginByKakaoAccount()
+                                scope.launch {
+                                    kakaoAuthInteractor
+                                        .loginByKakaoAccount()
+                                        .onSuccess { viewModel.executeInHouseLogin(it.token) }
+                                        .onFailure { Timber.e(it) }
+                                }
                             }
                         }
                         .alpha(alphaOffset))
             }
 
-            val isKakaoLoginSuccess by kakaoAuthInteractor.loginState.collectAsState()
-            when (isKakaoLoginSuccess) {
-                is KakaoAuthInteractor.KakaoLoginState.Success -> {
-                    viewModel.executeInHouseLogin(
-                        (isKakaoLoginSuccess as KakaoAuthInteractor.KakaoLoginState.Success).token
-                    )
-                }
-                is KakaoAuthInteractor.KakaoLoginState.Failure -> {
-                    Toast.makeText(
-                        LocalContext.current, "카카오 로그인에 실패했습니다.", Toast.LENGTH_SHORT
-                    ).show()
-                }
-                else -> {}
-            }
             when (viewModel.inHouseLoginLoginUiState.value) {
                 is InHouseLoginUiState.SignInSuccess -> navigateHome()
                 is InHouseLoginUiState.SignUpSuccess -> navigateRegister()
@@ -164,6 +163,7 @@ fun LoginScreen(
                         LocalContext.current, "로그인/회원가입에 실패했습니다.", Toast.LENGTH_SHORT
                     ).show()
                 }
+
                 else -> {}
             }
         }
@@ -173,11 +173,17 @@ fun LoginScreen(
 private val mockKakaoAuthInteractor = object : KakaoAuthInteractor {
     override val isKakaoTalkLoginAvailable: Boolean
         get() = false
-    override val loginState: StateFlow<KakaoAuthInteractor.KakaoLoginState>
-        get() = MutableStateFlow(KakaoAuthInteractor.KakaoLoginState.Init)
 
-    override fun loginByKakaoTalk() = Unit
-    override fun loginByKakaoAccount() = Unit
+    override suspend fun loginByKakaoTalk(): Result<KakaoAuthInteractor.Token> =
+        runCatching {
+            KakaoAuthInteractor.Token("")
+        }
+
+    override suspend fun loginByKakaoAccount(): Result<KakaoAuthInteractor.Token> =
+        runCatching {
+            KakaoAuthInteractor.Token("")
+        }
+
     override fun logout() = Unit
     override fun expire() = Unit
 }
@@ -185,5 +191,5 @@ private val mockKakaoAuthInteractor = object : KakaoAuthInteractor {
 @Preview(backgroundColor = 0xFFFFFFFF)
 @Composable
 fun PreviewLoginScreen() {
-    LoginScreen(hiltViewModel(), mockKakaoAuthInteractor, {}, {}) {}
+    LoginScreen(hiltViewModel(), mockKakaoAuthInteractor, {}) {}
 }
