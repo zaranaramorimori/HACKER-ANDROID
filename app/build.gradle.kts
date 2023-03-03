@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -8,9 +10,14 @@ plugins {
     id("com.google.gms.google-services")
     id("com.google.firebase.appdistribution")
     id("com.google.firebase.crashlytics")
+    alias(libs.plugins.google.secret.plugin)
 }
 
 android {
+    val properties = Properties().apply {
+        load(file("../local.properties").inputStream())
+    }
+
     compileSdk = Constants.compileSdk
     buildToolsVersion = "30.0.3"
 
@@ -26,23 +33,23 @@ android {
 
     signingConfigs {
         getByName("debug") {
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
+            keyAlias = "${properties["DEUBG_KEY_ALIAS"]}"
+            keyPassword = "${properties["DEBUG_KEY_PASSWORD"]}"
             storeFile = File("${project.rootDir.absolutePath}/keystore/debug.keystore")
-            storePassword = "android"
+            storePassword = "${properties["DEBUG_KEY_PASSWORD"]}"
         }
         create("release") {
-            keyAlias = "hackerandroid"
-            keyPassword = "hacker1234!"
+            keyAlias = "${properties["RELEASE_KEY_ALIAS"]}"
+            keyPassword = "${properties["RELEASE_KEY_PASSWORD"]}"
             storeFile = File("${project.rootDir.absolutePath}/keystore/releasekey")
-            storePassword = "hacker1234!"
+            storePassword = "${properties["RELEASE_KEY_PASSWORD"]}"
         }
     }
 
     buildTypes {
         getByName("debug") {
             configure<com.google.firebase.appdistribution.gradle.AppDistributionExtension> {
-                appId = "1:496905678269:android:a84b7af7d17001f614b6d4"
+                appId = "${properties["APP_DISTRIBUTION_ID"]}"
                 serviceCredentialsFile =
                     file("../keystore/firebase_distribution_key.json").absolutePath
                 artifactType = "APK"
@@ -59,7 +66,7 @@ android {
                 "proguard-rules.pro"
             )
             configure<com.google.firebase.appdistribution.gradle.AppDistributionExtension> {
-                appId = "1:496905678269:android:a84b7af7d17001f614b6d4"
+                appId = "${properties["APP_DISTRIBUTION_ID"]}"
                 serviceCredentialsFile =
                     file("../keystore/firebase_distribution_key.json").absolutePath
                 artifactType = "APK"
