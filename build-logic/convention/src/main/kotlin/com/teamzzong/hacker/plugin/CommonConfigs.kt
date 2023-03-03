@@ -27,7 +27,7 @@ internal fun Project.configureAndroidCommonPlugin() {
     dependencies {
         "implementation"(libs.findLibrary("androidx.core").get())
         "implementation"(libs.findLibrary("androidx.appcompat").get())
-        "implementation"(libs.findLibrary("androidx.lifecycle").get())
-        "implementation"(libs.findLibrary("google.material").get())
+        "implementation"(libs.findLibrary("androidx.lifecycle-viewmodel").get())
+        "implementation"(libs.findLibrary("material").get())
     }
 }

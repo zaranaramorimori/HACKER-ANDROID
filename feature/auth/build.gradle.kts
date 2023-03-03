@@ -1,36 +1,19 @@
 plugins {
-    kotlin("android")
-    alias(libs.plugins.kotlinx.serialization)
-    kotlin("kapt")
-    id("com.android.library")
-    id("dagger.hilt.android.plugin")
+    id("com.teamzzong.hacker.feature")
+    id("com.teamzzong.hacker.serialization")
+    id("com.teamzzong.hacker.hilt")
 }
 
 android {
     namespace = "com.teamzzong.hacker.auth"
-    compileSdk = Constants.compileSdk
 
     defaultConfig {
-        minSdk = Constants.minSdk
-        targetSdk = Constants.targetSdk
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildFeatures {
-        dataBinding = true
-        viewBinding = true
         compose = true
-    }
-
-    compileOptions {
-        sourceCompatibility = Versions.javaVersion
-        targetCompatibility = Versions.javaVersion
-    }
-
-    kotlinOptions {
-        jvmTarget = Versions.jvmVersion
     }
 
     composeOptions {
@@ -43,9 +26,6 @@ dependencies {
     implementation(project(":core-ui"))
     implementation(project(":shared"))
     implementation(project(":domain"))
-    implementation(libs.kotlin)
-    implementation(libs.kotlin.serialization.json)
-    implementation(libs.material)
     implementation(libs.bundles.androidx)
     implementation(libs.bundles.retrofit)
     implementation(libs.timber)
@@ -56,9 +36,6 @@ dependencies {
     implementation(platform(libs.firebase))
     implementation(libs.bundles.firebase)
     implementation(libs.inappupdate)
-
-    implementation(libs.hilt)
-    kapt(libs.hilt.kapt)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.junit)

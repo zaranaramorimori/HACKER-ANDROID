@@ -222,5 +222,7 @@ kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services-plugin" }
 google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "google-crashlytics-plguin" }
+google-firebase-appdistribution = { id = "com.google.firebase.appdistribution", version.ref = "google-appdistribution-plugin" }
 google-secret-plugin = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "google-secrets-gradle-plugin" }
+google-oss-plugin = { id = "com.google.android.gms.oss-licenses-plugin", version.ref = "google-oss-plugin"}
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
