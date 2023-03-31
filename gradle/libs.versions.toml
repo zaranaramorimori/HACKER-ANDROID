@@ -36,7 +36,7 @@ androidx-legacy = "1.0.0"
 androidx-hilt-work = "1.0.0"
 androidx-test-junit = "1.1.5"
 androidx-test-espresso = "3.5.1"
-desugarJdk = "2.0.2"
+desugarJdk = "2.0.3"
 
 google-material = "1.8.0"
 google-oss-plugin = "0.10.6"
