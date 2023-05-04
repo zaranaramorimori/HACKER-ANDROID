@@ -38,7 +38,7 @@ androidx-test-junit = "1.1.5"
 androidx-test-espresso = "3.5.1"
 desugarJdk = "2.0.3"
 
-google-material = "1.8.0"
+google-material = "1.9.0"
 google-oss-plugin = "0.10.6"
 goolge-oss = "17.0.1"
 google-admob = "22.0.0"
