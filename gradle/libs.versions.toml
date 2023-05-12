@@ -11,7 +11,7 @@ kotlin = "1.8.10"
 kotlinx-serialization = "1.5.0"
 kotlinx-serialization-converter = "1.0.0"
 kotlinx-datetime = "0.4.0"
-kotlinx-coroutines = "1.6.4"
+kotlinx-coroutines = "1.7.1"
 
 androidx-core = "1.10.0"
 androidx-appcompat = "1.6.1"
