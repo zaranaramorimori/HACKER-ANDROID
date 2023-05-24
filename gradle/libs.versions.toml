@@ -5,7 +5,7 @@ targetSdk = "33"
 appVersion = "1.0.6"
 versionCode = "10006"
 
-gradleplugin = "7.4.2"
+gradleplugin = "8.0.2"
 
 kotlin = "1.8.10"
 kotlinx-serialization = "1.5.1"
