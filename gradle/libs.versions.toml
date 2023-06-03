@@ -49,7 +49,7 @@ google-crashlytics-plguin = "2.9.5"
 google-firebase = "32.1.0"
 google-secrets-gradle-plugin = "2.0.1"
 
-meta-flipper = "0.191.1"
+meta-flipper = "0.192.0"
 meta-soloader = "0.10.5"
 meta-leakcanary = "2.10"
 
