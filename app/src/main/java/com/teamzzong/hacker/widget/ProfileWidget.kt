@@ -7,6 +7,7 @@ import androidx.glance.*
 import androidx.glance.action.Action
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.action.actionStartActivity
+import androidx.glance.appwidget.provideContent
 import androidx.glance.layout.*
 import androidx.glance.state.GlanceStateDefinition
 import androidx.glance.state.PreferencesGlanceStateDefinition
@@ -19,9 +20,14 @@ import com.teamzzong.hacker.widget.ProfileWidgetReceiver.Companion.ProfileImageK
 class ProfileWidget : GlanceAppWidget() {
 
     override val stateDefinition: GlanceStateDefinition<*> = PreferencesGlanceStateDefinition
+    override suspend fun provideGlance(context: Context, id: GlanceId) {
+        provideContent {
+            Content()
+        }
+    }
 
     @Composable
-    override fun Content() {
+    fun Content() {
         val name = currentState(NameKey)
         val profileUrl = currentState(ProfileImageKey)
         val commitCount = currentState(CommitCountKey)
