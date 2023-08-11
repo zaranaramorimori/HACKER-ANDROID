@@ -45,12 +45,12 @@ class CircleImageView : ImageView {
         this.borderColor = color
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         val path = Path()
         val rect = RectF(0f, 0f, this.width.toFloat(), this.height.toFloat())
         radius = min(this.width.toFloat() / 2.0f, this.height.toFloat() / 2.0f)
         path.addRoundRect(rect, radius, radius, Path.Direction.CW)
-        canvas!!.clipPath(path)
+        canvas.clipPath(path)
 
         super.onDraw(canvas)
 
@@ -60,7 +60,7 @@ class CircleImageView : ImageView {
             color = borderColor
             isAntiAlias = true
             style = Paint.Style.STROKE
-            canvas?.drawCircle(
+            canvas.drawCircle(
                 measuredWidth / 2.toFloat(),
                 measuredHeight / 2.toFloat(),
                 (measuredWidth / 2 - 5).toFloat(),

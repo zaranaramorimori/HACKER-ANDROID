@@ -15,8 +15,6 @@ android {
         load(file("../local.properties").inputStream())
     }
 
-    buildToolsVersion = "30.0.3"
-
     defaultConfig {
         val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
