@@ -65,7 +65,7 @@ skydoves-balloon = "1.5.4"
 lottie = "6.1.0"
 pulltorefresh = "1.5.1"
 processphoenix = "2.1.2"
-leakcanary = "2.11"
+leakcanary = "2.12"
 
 junit = "4.13.2"
 
