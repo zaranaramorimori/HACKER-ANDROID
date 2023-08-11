@@ -51,7 +51,7 @@ google-secrets-gradle-plugin = "2.0.1"
 
 meta-flipper = "0.201.0"
 meta-soloader = "0.10.5"
-meta-leakcanary = "2.11"
+meta-leakcanary = "2.12"
 
 square-javapoet = "1.13.0"
 
