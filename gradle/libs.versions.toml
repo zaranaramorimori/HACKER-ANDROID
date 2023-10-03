@@ -69,7 +69,7 @@ leakcanary = "2.12"
 
 junit = "4.13.2"
 
-hilt = "2.47"
+hilt = "2.48.1"
 
 [libraries]
 android-build = { module = "com.android.tools.build:gradle", version.ref = "gradleplugin" }
