@@ -55,7 +55,7 @@ meta-leakcanary = "2.12"
 
 square-javapoet = "1.13.0"
 
-coil = "2.4.0"
+coil = "2.7.0"
 retrofit = "2.9.0"
 okhttp = "4.12.0"
 timber = "5.0.1"
