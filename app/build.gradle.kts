@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.google.secret.plugin)
     alias(libs.plugins.google.firebase.appdistribution)
     id("com.google.android.gms.oss-licenses-plugin")
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {

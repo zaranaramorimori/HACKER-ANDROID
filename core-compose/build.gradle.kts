@@ -1,5 +1,6 @@
 plugins {
     id("com.teamzzong.hacker.feature")
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {

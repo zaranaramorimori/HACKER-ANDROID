@@ -2,6 +2,7 @@ plugins {
     id("com.teamzzong.hacker.feature")
     id("com.teamzzong.hacker.serialization")
     id("com.teamzzong.hacker.hilt")
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
