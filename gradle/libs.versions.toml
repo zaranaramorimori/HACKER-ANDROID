@@ -46,7 +46,7 @@ google-inappupdate = "2.1.0"
 google-services-plugin = "4.4.2"
 google-appdistribution-plugin = "5.1.1"
 google-crashlytics-plguin = "3.0.3"
-google-firebase = "33.14.0"
+google-firebase = "33.16.0"
 google-secrets-gradle-plugin = "2.0.1"
 
 meta-flipper = "0.273.0"
